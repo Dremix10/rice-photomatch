@@ -2,32 +2,41 @@
 // You'll get this URL after deploying the Google Apps Script (see SETUP.md)
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGXIfj2YveCGb94jkEGtoYoaM0Z8dyyjTaI15Fh3nPTgp1uVtOHRZ-oScvix3a6aY/exec';
 
-// Handle conditional portfolio fields
-document.getElementById('hasInstagram').addEventListener('change', function() {
-    const field = document.getElementById('instagramField');
-    field.style.display = this.checked ? 'block' : 'none';
-    if (!this.checked) document.getElementById('instagram').value = '';
-});
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle conditional portfolio fields
+    document.getElementById('hasInstagram').addEventListener('change', function() {
+        const field = document.getElementById('instagramField');
+        field.style.display = this.checked ? 'block' : 'none';
+        if (!this.checked) document.getElementById('instagram').value = '';
+    });
 
-document.getElementById('hasWebsite').addEventListener('change', function() {
-    const field = document.getElementById('websiteField');
-    field.style.display = this.checked ? 'block' : 'none';
-    if (!this.checked) document.getElementById('website').value = '';
-});
+    document.getElementById('hasWebsite').addEventListener('change', function() {
+        const field = document.getElementById('websiteField');
+        field.style.display = this.checked ? 'block' : 'none';
+        if (!this.checked) document.getElementById('website').value = '';
+    });
 
-document.getElementById('hasPixieset').addEventListener('change', function() {
-    const field = document.getElementById('pixiesetField');
-    field.style.display = this.checked ? 'block' : 'none';
-    if (!this.checked) document.getElementById('pixieset').value = '';
-});
+    document.getElementById('hasPixieset').addEventListener('change', function() {
+        const field = document.getElementById('pixiesetField');
+        field.style.display = this.checked ? 'block' : 'none';
+        if (!this.checked) document.getElementById('pixieset').value = '';
+    });
 
-document.getElementById('hasOther').addEventListener('change', function() {
-    const field = document.getElementById('otherField');
-    field.style.display = this.checked ? 'block' : 'none';
-    if (!this.checked) document.getElementById('otherPortfolio').value = '';
-});
+    document.getElementById('hasOther').addEventListener('change', function() {
+        const field = document.getElementById('otherField');
+        field.style.display = this.checked ? 'block' : 'none';
+        if (!this.checked) document.getElementById('otherPortfolio').value = '';
+    });
 
-document.getElementById('photographerForm').addEventListener('submit', async function(e) {
+    // Add Instagram @ symbol if user forgets it
+    document.getElementById('instagram').addEventListener('blur', function() {
+        if (this.value && !this.value.startsWith('@')) {
+            this.value = '@' + this.value;
+        }
+    });
+
+    document.getElementById('photographerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Get form elements
@@ -120,11 +129,5 @@ document.getElementById('photographerForm').addEventListener('submit', async fun
         btnText.style.display = 'inline';
         btnLoading.style.display = 'none';
     }
-});
-
-// Add Instagram @ symbol if user forgets it
-document.getElementById('instagram').addEventListener('blur', function() {
-    if (this.value && !this.value.startsWith('@')) {
-        this.value = '@' + this.value;
-    }
+    });
 });
