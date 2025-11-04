@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice PhotoMatch - Join Our Photographer Network</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Rice PhotoMatch</h1>
+            <p class="tagline">Connect Houston locals with talented Rice photographers</p>
+        </header>
+
+        <div class="intro">
+            <h2>Join Our Photographer Network</h2>
+            <p>We're building a platform to connect Rice photographers with Houston locals looking for professional photos. Sign up below to be part of our launch!</p>
+        </div>
+
+        <form id="photographerForm">
+            <div class="form-group">
+                <label for="name">Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="instagram">Instagram Handle <span class="required">*</span></label>
+                <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="photoTypes">Types of Photos You Take <span class="required">*</span></label>
+                <textarea id="photoTypes" name="photoTypes" rows="3" placeholder="e.g., Headshots, Graduation photos, Portraits, Events..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Mobility <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="mobility" value="Mobile" required>
+                        <span>Mobile - I travel to locations</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mobility" value="Studio-based" required>
+                        <span>Studio-based - Clients come to me</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mobility" value="Both" required>
+                        <span>Both - Flexible</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="packages">Pricing Packages <span class="required">*</span></label>
+                <textarea id="packages" name="packages" rows="5" placeholder="List your packages with what's included. Example:&#10;&#10;Basic Package - $50&#10;- 30 min session&#10;- 10 edited photos&#10;- Digital delivery&#10;&#10;Premium Package - $100&#10;- 1 hour session&#10;- 25 edited photos&#10;- Digital delivery + prints" required></textarea>
+                <small>Be specific about what comes with each package</small>
+            </div>
+
+            <div class="form-group">
+                <label for="availability">Current Availability</label>
+                <textarea id="availability" name="availability" rows="2" placeholder="e.g., Weekends only, After 5pm weekdays, Flexible..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Anything else you'd like us to know?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span class="btn-text">Submit Application</span>
+                <span class="btn-loading" style="display: none;">Submitting...</span>
+            </button>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                ✓ Thanks for signing up! We'll be in touch soon.
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                ✗ Something went wrong. Please try again or contact us directly.
+            </div>
+        </form>
+
+        <footer>
+            <p>Questions? Reach out to us at <a href="mailto:contact@ricephotomatch.com">contact@ricephotomatch.com</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
